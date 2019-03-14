@@ -6,7 +6,6 @@ var loginBtn = document.getElementById("loginBtn");
 
 var closeButton = document.getElementById("closeButton");
 
-var count = 0;
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
