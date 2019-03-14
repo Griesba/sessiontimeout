@@ -4,15 +4,18 @@ var modal = document.getElementById('id01');
 // Get the button that opens the modal
 var btn = document.getElementById("myButton");
 
+var loginBtn = document.getElementById("loginBtn");
+
 var closeButton = document.getElementById("closeButton");
 
 var count = 0;
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-var timerPeriod = 10000;
+var timerPeriod = 60000;
 
 var callback = function() {
+	myFunction();
 	console.log("Hello");
 }
 
@@ -21,36 +24,36 @@ var timer = new Timer(callback, timerPeriod);
 // When the user clicks on the button, open the modal 
 btn.onclick = function() {
   modal.style.display = "block";
-  timer.restart(timerPeriod);
-  
+  timer.restart(timerPeriod);  
 }
 
+loginBtn.onclick = function () {
+	document.getElementById('id01').style.display='block';
+	timer.stop();
+}
 
 myFunction = function () {
 	modal.style.display = "block";
-	/*setInterval(function () {
-		modal.style.display = "block";
-	}, 10000);*/
-	
-	timer.start();
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-  modal.style.display = "none";
+	modal.style.display = "none";
+	timer.restart(timerPeriod);
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+	timer.restart(timerPeriod);
   }
 }
 
 
 function Timer(fn, period) {
 
-	var myInterval;
+	var myInterval; 
 	
 	this.stop = function() {
 		if(myInterval) {
