@@ -1,8 +1,6 @@
 // Get the modal
 var modal = document.getElementById('id01');
 
-// Get the button that opens the modal
-var btn = document.getElementById("myButton");
 
 var loginBtn = document.getElementById("loginBtn");
 
@@ -21,11 +19,7 @@ var callback = function() {
 
 var timer = new Timer(callback, timerPeriod);
 
-// When the user clicks on the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
-  timer.restart(timerPeriod);  
-}
+
 
 loginBtn.onclick = function () {
 	document.getElementById('id01').style.display='block';
